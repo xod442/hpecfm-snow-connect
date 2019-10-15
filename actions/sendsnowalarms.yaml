@@ -1,0 +1,10 @@
+---
+name: sendsnowalarms
+description: A workflow for sending plexxi alarms to servicenow.
+runner_type: orquesta
+entry_point: workflows/sendsnowalarms.yaml
+enabled: true
+parameters:
+  alarms:
+    required: true
+    type: array

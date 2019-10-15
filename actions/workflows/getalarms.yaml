@@ -1,0 +1,15 @@
+version: 1.0
+
+description: A workflow to copy real time alarms from hpecfm to servicenow.
+
+tasks:
+  getalarms:
+    action: hpecfm.get_alarms
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - alarms: <% result().result %>
+        do: sendsnow
+
+  sendsnow:
+    action: hpecfm-snow-connect.sendsnowalarms alarms=<% ctx().alarms %>

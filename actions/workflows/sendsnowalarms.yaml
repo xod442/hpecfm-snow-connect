@@ -1,0 +1,12 @@
+version: 1.0
+
+description: "Send hpecfm alarms to snow"
+
+input:
+  - alarms
+
+tasks:
+
+    snowsalarms:
+      with: <% ctx().switches %>
+      action: servicenow.create_record table="u_cfm_alarms" payload='<% item() %>'

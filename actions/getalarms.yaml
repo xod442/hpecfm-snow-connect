@@ -1,0 +1,6 @@
+---
+name: getalarms
+description: A workflow for getting plexxi slarms into stackstorm.
+runner_type: orquesta
+entry_point: workflows/getalarms.yaml
+enabled: true

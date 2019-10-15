@@ -1,0 +1,13 @@
+---
+name: "send_snow_hpecfm_alarms"
+description: "If alarms are in the process collection, send the to service now."
+enabled: true
+
+trigger:
+  type: "core.st2.IntervalTimer"
+  parameters:
+    delta: 5
+    unit: minutes
+
+action:
+  ref: "hpecfm-snow-connect.getalarms"

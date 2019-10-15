@@ -1,0 +1,14 @@
+---
+ref: hpecfm-snow-connect
+name: hpecfm-snow-connect
+description: HPE Composable Fabric and servicenow Integration Pack
+keywords:
+  - Composable Fabric
+  - Plexxi
+  - Sevicenow
+version: 0.1.2
+python_versions:
+  - "2"
+  - "3"
+author: Rick Kauffman
+email: rick.a.kauffman@hpe.com
