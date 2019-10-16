@@ -10,4 +10,4 @@ trigger:
     unit: minutes
 
 action:
-  ref: "hpecfm-snow-connect.getalarms"
+  ref: "snowconnect.getalarms"

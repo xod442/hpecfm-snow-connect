@@ -1,10 +1,10 @@
 version: 1.0
 
-description: A workflow to copy real time alarms from hpecfm to servicenow.
+description: A workflow to read real time alarms from a mongo database collection.
 
 tasks:
   getalarms:
-    action: hpecfm.get_alarms
+    action: snowconnect.readdbalarms
     next:
       - when: <% succeeded() %>
         publish:
