@@ -8,5 +8,5 @@ input:
 tasks:
 
     snowsalarms:
-      with: <% ctx().switches %>
+      with: <% ctx().alarms %>
       action: servicenow.create_record table="u_cfm_alarms" payload='<% item() %>'
