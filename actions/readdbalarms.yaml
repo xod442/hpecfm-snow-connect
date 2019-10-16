@@ -1,6 +1,6 @@
 ---
 name: loaddbalarms
-pack: hpecfmaudits
+pack: snowconnect
 description: build mongo db of real time alarms on the cfm
 runner_type: python-script
 entry_point: loaddbalarms.py
