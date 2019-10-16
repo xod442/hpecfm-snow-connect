@@ -1,6 +1,6 @@
 ---
-ref: hpecfm-snow-connect
-name: hpecfm-snow-connect
+ref: snowconnect
+name: snowconnect
 description: HPE Composable Fabric and servicenow Integration Pack
 keywords:
   - Composable Fabric

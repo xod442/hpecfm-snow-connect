@@ -12,4 +12,4 @@ tasks:
         do: sendsnow
 
   sendsnow:
-    action: hpecfm-snow-connect.sendsnowalarms alarms=<% ctx().alarms %>
+    action: snowconnect.sendsnowalarms alarms=<% ctx().alarms %>
