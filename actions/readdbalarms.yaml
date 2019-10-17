@@ -1,9 +1,9 @@
 ---
-name: loaddbalarms
+name: readdbalarms
 pack: snowconnect
-description: build mongo db of real time alarms on the cfm
+description: read alarms from mongo database collection
 runner_type: python-script
-entry_point: loaddbalarms.py
+entry_point: readdbalarms.py
 enabled: true
 parameters:
   alarms:
