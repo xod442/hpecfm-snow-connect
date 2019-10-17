@@ -5,7 +5,3 @@ description: read alarms from mongo database collection
 runner_type: python-script
 entry_point: readdbalarms.py
 enabled: true
-parameters:
-  alarms:
-    required: true
-    type: array

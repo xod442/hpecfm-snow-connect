@@ -25,10 +25,11 @@ from lib.actions import HpecfmAlarmsBaseAction
 
 
 class readDb(HpecfmAlarmsBaseAction):
-    def run(self, alarms):
+    def run(self):
 
         mydb = self.client["app_db"]
         process = mydb["processalarms"]
+        known = mydb['knownalarms']
 
         # read all the records from process alarms
         alarms = process.find()
@@ -38,7 +39,13 @@ class readDb(HpecfmAlarmsBaseAction):
         for alarm in alarms:
             alarms_out.append(alarm)
 
+            # Update records to have the snowack set to yes
+            myquery = {"snowack" : "no"}
+            newvalues = { "$set" : { "snowack": "yes"} }
+
+         known.update_one(myquery, newvalues)
+
         # Clean out the process alarms collection
         process.drop()
-        
+
         return (alarms_out)
