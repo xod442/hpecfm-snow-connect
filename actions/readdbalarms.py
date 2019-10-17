@@ -29,11 +29,10 @@ class readDb(HpecfmAlarmsBaseAction):
     def run(self):
 
         mydb = self.client["app_db"]
-        process = mydb["processalarms"]
         known = mydb['knownalarms']
 
         # read all the records from process alarms
-        alarms = process.find()
+        alarms = known.find({"u_snowack" : "no"})
 
         alarms_out = []
         # make a new dict to remove ObjectID from mongo records (process dict)
@@ -56,7 +55,5 @@ class readDb(HpecfmAlarmsBaseAction):
 
             known.update_one(myquery, newvalues)
 
-        # Clean out the process alarms collection
-        process.drop()
 
         return (alarms_out)
