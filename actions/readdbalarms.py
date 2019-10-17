@@ -40,10 +40,10 @@ class readDb(HpecfmAlarmsBaseAction):
             alarms_out.append(alarm)
 
             # Update records to have the snowack set to yes
-            myquery = {"snowack" : "no"}
-            newvalues = { "$set" : { "snowack": "yes"} }
+            myquery = {"u_snowack" : "no"}
+            newvalues = { "$set" : { "u_snowack": "yes"} }
 
-         known.update_one(myquery, newvalues)
+            known.update_one(myquery, newvalues)
 
         # Clean out the process alarms collection
         process.drop()
