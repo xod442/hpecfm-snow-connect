@@ -21,6 +21,7 @@
 # A python script for getting a dictionary of switches
 
 import pymongo
+import json
 from lib.actions import HpecfmAlarmsBaseAction
 
 
@@ -35,9 +36,19 @@ class readDb(HpecfmAlarmsBaseAction):
         alarms = process.find()
 
         alarms_out = []
+        # make a new dict to remove ObjectID from mongo records (process dict)
+        pd = {}
 
         for alarm in alarms:
-            alarms_out.append(alarm)
+            pd['u_eventType'] = alarm['u_eventType']
+            pd['u_typex'] = alarm['u_typex']
+            pd['u_uuid'] = alarm['u_uuid']
+            pd['u_sev'] = alarm['u_sev']
+            pd['u_desc'] = alarm['u_desc']
+
+            # convert pd dict to a string for servicenow action
+            item = json.dumps(pd)
+            alarms_out.append(item)
 
             # Update records to have the snowack set to yes
             myquery = {"u_snowack" : "no"}
